@@ -18,7 +18,7 @@
     <nav id="nav_f" class="default_color" role="navigation">
         <div class="container">
             <div class="nav-wrapper">
-            <a href="#" id="logo-container" class="brand-logo">Code Across Brazil</a>
+                <a href="#" id="logo-container" class="brand-logo">Code Across Brazil</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#top">Início</a></li>
                     <li><a href="#events">Eventos</a></li>
@@ -31,7 +31,8 @@
                     <li><a href="#intro">O que é</a></li>
                     <li><a href="#forms">Inscrição</a></li>
                 </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                {{> loginButtons}}
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
         </div>
     </nav>
@@ -40,7 +41,7 @@
 <!--Hero-->
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-        <img src="img/banner.jpg" class="img-banner">
+        <img src="img/banner.jpg" class="img-banner open-login">
     </div>
 </div>
 
@@ -48,54 +49,9 @@
 <div class="section scrollspy" id="events">
     <div class="container">
         <div class="row">
-            <div class="col s12 m6 l6">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/project1.jpg">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Nome do evento <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><em>Data e hora</em></p>
-                        <p><a href="#">Website</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Nome do evento <i class="mdi-navigation-close right"></i></span>
-                        <p>Aqui vem a descrição completa do evento.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m6 l6">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/project2.jpeg">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Nome do evento <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><em>Data e hora</em></p>
-                        <p><a href="#">Website</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Nome do evento <i class="mdi-navigation-close right"></i></span>
-                        <p>Aqui vem a descrição completa do evento.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m6 l6">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="img/project3.png">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Nome do evento <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><em>Data e hora</em></p>
-                        <p><a href="#">Website</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Nome do evento <i class="mdi-navigation-close right"></i></span>
-                        <p>Aqui vem a descrição completa do evento.</p>
-                    </div>
-                </div>
-            </div>
+            {{#each events}}
+                {{> event}}
+            {{/each}}
         </div>
     </div>
 </div>
@@ -146,16 +102,16 @@
         <h2 class="header text_b"> Seu evento no Code Across</h2>
         <h5> Cadastre seu evento para fazer parte da programação e da divulgação do Code Across Brazil 2016. </h5>
         <div class="row">
-            <form class="col s12" method="post">
+            <form class="new-event col s12" method="post">
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="mdi-action-label-outline prefix"></i>
-                        <input id="icon_prefix" name="name" type="text" class="validate">
+                        <input id="icon_prefix" name="name" type="text" class="validate" required>
                         <label for="icon_prefix">Nome</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="mdi-action-schedule prefix"></i>
-                        <input id="icon_prefix" name="name" type="text" class="validate">
+                        <input id="icon_prefix" name="datetime" type="text" class="validate" required>
                         <label for="icon_prefix">Data / Hora</label>
                     </div>
                     <div class="input-field col s12">
@@ -165,13 +121,13 @@
                     </div>
                     <div class="input-field col s6">
                         <i class="mdi-editor-insert-link prefix"></i>
-                        <input id="icon_prefix" name="url" type="text" class="validate">
+                        <input id="icon_prefix" name="website" type="text" class="validate">
                         <label for="icon_prefix">Website</label>
                     </div>
                     <div class="file-field input-field col s6">
-                        <div class="btn waves-effect waves-light light-blue darken-1">
-                            <i class="mdi-editor-insert-photo"></i>
-                            <input type="file" name="image">
+                        <div class="btn waves-effect waves-light yellow lighten-3 black-text">
+                            <i class="mdi-editor-insert-photo medium"></i>
+                            <input type="file" name="image" id="event_image" required>
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text" name="imagepath" placeholder="Imagem">
@@ -179,17 +135,17 @@
                     </div> 
                     <div class="input-field col s6">
                         <i class="mdi-action-account-circle prefix"></i>
-                        <input id="icon_prefix" name="contato" type="text" class="validate">
+                        <input id="icon_prefix" name="contato" type="text" class="validate" required>
                         <label for="icon_prefix">Nome de contato</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="mdi-communication-email prefix"></i>
-                        <input id="icon_email" name="email" type="email" class="validate">
+                        <input id="icon_email" name="email" type="email" class="validate" required>
                         <label for="icon_email">Email</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="mdi-editor-mode-edit prefix"></i>
-                        <textarea id="icon_prefix2" name="message" class="materialize-textarea"></textarea>
+                        <textarea id="icon_prefix2" name="description" class="materialize-textarea" required></textarea>
                         <label for="icon_prefix2">Descrição</label>
                     </div>
                     <div class="col offset-s7 s5">
@@ -404,7 +360,7 @@
     <div class="footer-copyright default_color">
         <div class="container">
             Made by <a class="white-text" href="https://www.facebook.com/Code-For-Curitiba-728703680591258">Code for Curitiba</a>. Thanks to <a class="white-text" href="http://materializecss.com/">materializecss</a> and <a class="white-text" href="http://joashpereira.com">Joash Pereira</a>.
-        </div>
+       </div>
     </div>
 </footer>
 
@@ -413,3 +369,34 @@
     <script src="min/plugin-min.js"></script>
     <script src="min/custom-min.js"></script>
 </body>
+
+
+
+<template name="event">
+    <div class="col s12 m6 l6">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="http://res.cloudinary.com/lets/image/upload/w_250,h_250,c_fill/{{image}}.jpg">
+            </div>
+            <div class="card-content">
+                {{#if isAdmin}}
+                    <ul class="event-buttons text-white">
+                        <li><i class="fa fa-trash-o delete"></i></li>
+                        <li><i class="fa fa-edit edit"></i></li>
+                    </ul>
+                {{/if}}                
+ 
+                <span class="card-title activator grey-text text-darken-4">{{ name }} <i class="mdi-navigation-more-vert right"></i></span>
+                <p><em>{{ datetime }}</em></p>
+                <p><a href="#">{{ website }}</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">{{ name }} <i class="mdi-navigation-close right"></i></span>
+                <p>{{{ descriptionHtml }}}</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+

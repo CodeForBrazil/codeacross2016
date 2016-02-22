@@ -279,3 +279,24 @@ nav a.button-collapse {
 footer.page-footer {
     margin-top: 0px !important;
 }
+
+#login-buttons {
+    position: relative;
+    left: -70px;
+}
+
+#login-buttons a.login-link-text {
+    color: #2196F3;
+}
+
+.event-buttons {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 2px;
+    background-color: white;
+    z-index: 99;
+    text-align: center;
+}
+
