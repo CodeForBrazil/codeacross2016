@@ -50,11 +50,6 @@ if (Meteor.isClient) {
         });
 
         Cloudinary.upload(images, {}, function(err, res) {
-          console.log("Upload Error: " + err);
-          console.log(err);
-          console.log("Upload Result: ");
-          console.log(res);
-          console.log(event_id);
           if (err) {
             alert("A imagem não foi carregada.");
           } else {
@@ -62,7 +57,7 @@ if (Meteor.isClient) {
               Events.update(event_id, {
                 $set: { image: res.public_id }
               });
-              console.log('Image saved');
+              console.log('Image ' + res.public_id + ' saved');
             }
           }
         });
