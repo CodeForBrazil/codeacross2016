@@ -56,6 +56,40 @@
     </div>
 </div>
 
+<!--Parallax-->
+<div class="parallax-container">
+    <div class="parallax"><img src="img/hackathon.jpg"></div>
+</div>
+
+<!-- Partners -->
+<div id="partners" class="section scrollspy">
+    <div class="container">
+        <div class="row">
+            <div  class="col s12 m4 l4">
+                <div class="center partners">
+                    <a href="http://www.openbrazil.org" title="OpenBrazil website">
+                        <img src="img/c4b.png" alt="OpenBrazil [<o>] CodeForBrazil" title="OpenBrazil website" class="logo"/>
+                    </a>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center partners">
+                    <a href="http://www.codeforamerica.org" title="Code For America website">
+                        <img src="img/c4a.png" alt="Code For America" title="Code For America website" class="logo"/>
+                    </a>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center partners">
+                    <a href="https://www.facebook.com/Code-For-Curitiba-728703680591258" title="Code For Curitiba website">
+                        <img src="img/c4cwb.png" alt="Code For Curitiba" title="Code For Curitiba website" class="logo"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--Intro and service-->
 <div id="intro" class="section scrollspy">
     <div class="container">
@@ -89,69 +123,33 @@
     </div>
 </div>
 
-
 <!--Parallax-->
 <div class="parallax-container">
-    <div class="parallax"><img src="img/hackathon.jpg"></div>
+    <div class="parallax"><img src="img/opensource.jpg" style="width:100%"></div>
 </div>
-
-
-<div id="partners" class="section scrollspy">
-    <div class="container">
-        <div class="row">
-            <div  class="col s12 m4 l4">
-                <div class="center partners">
-                    <a href="http://www.openbrazil.org" title="OpenBrazil website">
-                        <img src="img/c4b.png" alt="OpenBrazil [<o>] CodeForBrazil" title="OpenBrazil website" class="logo"/>
-                    </a>
-                </div>
-            </div>
-            <div class="col s12 m4 l4">
-                <div class="center partners">
-                    <a href="http://www.codeforamerica.org" title="Code For America website">
-                        <img src="img/c4a.png" alt="Code For America" title="Code For America website" class="logo"/>
-                    </a>
-                </div>
-            </div>
-            <div class="col s12 m4 l4">
-                <div class="center partners">
-                    <a href="https://www.facebook.com/Code-For-Curitiba-728703680591258" title="Code For Curitiba website">
-                        <img src="img/c4cwb.png" alt="Code For Curitiba" title="Code For Curitiba website" class="logo"/>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 <!--Register-->
 <div class="section scrollspy" id="forms">
     <div class="container">
         <h2 class="header text_b"> Seu evento no Code Across</h2>
-        <h5> Cadastre seu evento para fazer parte da programação e da divulgação do Code Across Brazil 2016. </h5>
+        <h5> Cadastre seu evento sobre <span class="span_h5">Dados Abertos</span> para fazer parte da programação e da divulgação do <span class="span_h5">Code Across Brazil 2016</span>. </h5>
         <div class="row">
             <form class="new-event col s12" method="post">
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="mdi-action-label-outline prefix"></i>
-                        <input id="icon_prefix" name="name" type="text" class="validate" required>
-                        <label for="icon_prefix">Nome</label>
+                        <input id="event_name" name="name" type="text" class="validate" required>
+                        <label for="event_name">Nome do evento *</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="mdi-action-schedule prefix"></i>
-                        <input id="icon_prefix" name="datetime" type="text" class="validate" required>
-                        <label for="icon_prefix">Data / Hora</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="mdi-maps-place prefix"></i>
-                        <input id="icon_prefix" name="address" type="text" class="validate">
-                        <label for="icon_prefix">Endereço</label>
+                        <input id="event_datetime" name="datetime" type="text" class="validate" required>
+                        <label for="event_datetime">Data / Hora *</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="mdi-editor-insert-link prefix"></i>
-                        <input id="icon_prefix" name="website" type="text" class="validate">
-                        <label for="icon_prefix">Website</label>
+                        <input id="event_website" name="website" type="text" class="validate">
+                        <label for="event_website">Website</label>
                     </div>
                     <div class="file-field input-field col s6">
                         <div class="btn waves-effect waves-light yellow lighten-3 black-text">
@@ -159,28 +157,46 @@
                             <input type="file" name="image" id="event_image" required>
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" name="imagepath" placeholder="Imagem">
+                            <input class="file-path validate" type="text" name="imagepath" placeholder="Imagem *">
                         </div>
                     </div> 
+                    <div class="input-field col s12 block-end">
+                        <i class="mdi-editor-mode-edit prefix"></i>
+                        <textarea id="event_description" name="description" class="materialize-textarea" required></textarea>
+                        <label for="event_description">Descrição *</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <i class="mdi-social-location-city prefix"></i>
+                        <input id="event_city" name="city" type="text" class="validate" required>
+                        <label for="event_city">Cidade *</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="mdi-action-home prefix"></i>
+                        <input id="event_place" name="place" type="text" class="validate" required>
+                        <label for="event_place">Local *</label>
+                    </div>
+                    <div class="input-field col s12 block-end">
+                        <i class="mdi-maps-place prefix"></i>
+                        <input id="event_address" name="address" type="text" class="validate">
+                        <label for="event_address">Endereço</label>
+                    </div>
+
                     <div class="input-field col s6">
                         <i class="mdi-action-account-circle prefix"></i>
-                        <input id="icon_prefix" name="contato" type="text" class="validate" required>
-                        <label for="icon_prefix">Nome de contato</label>
+                        <input id="event_contato" name="contato" type="text" class="validate" required>
+                        <label for="event_contato">Nome de contato *</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s6 block-end">
                         <i class="mdi-communication-email prefix"></i>
-                        <input id="icon_email" name="email" type="email" class="validate" required>
-                        <label for="icon_email">Email</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="mdi-editor-mode-edit prefix"></i>
-                        <textarea id="icon_prefix2" name="description" class="materialize-textarea" required></textarea>
-                        <label for="icon_prefix2">Descrição</label>
+                        <input id="event_email" name="email" type="email" class="validate" required>
+                        <label for="event_email">Email *</label>
                     </div>
                     <div class="col offset-s7 s5">
                         <button class="btn waves-effect waves-light light-blue darken-1" type="submit">Mandar
                             <i class="mdi-content-send right white-text"></i>
                         </button>
+                        <div><small>*: campo obrigatório</small></div>
                     </div>
                 </div>
             </form>
@@ -305,30 +321,6 @@
     <div class="container">  
         <div class="row">
             <div class="col l4 s12">
-                <!--form class="col s12" action="contact.php" method="post">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="mdi-action-account-circle prefix white-text"></i>
-                            <input id="icon_prefix" name="name" type="text" class="validate white-text">
-                            <label for="icon_prefix" class="white-text">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="mdi-communication-email prefix white-text"></i>
-                            <input id="icon_email" name="email" type="email" class="validate white-text">
-                            <label for="icon_email" class="white-text">Email-id</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="mdi-editor-mode-edit prefix white-text"></i>
-                            <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
-                            <label for="icon_prefix2" class="white-text">Message</label>
-                        </div>
-                        <div class="col offset-s7 s5">
-                            <button class="btn waves-effect waves-light red darken-1" type="submit">Submit
-                                <i class="mdi-content-send right white-text"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form-->
                 <h5 class="white-text">Organize seu evento</h5>
                 <ul>
                     <li>
@@ -368,7 +360,7 @@
                     </li>
                     <li>
                         <p>
-                            <a class="seja-parceiro btn waves-effect waves-light yellow lighten-3 blue-grey-text" href="#">Seja um parceiro</a>
+                            <a class="seja-parceiro btn waves-effect waves-light yellow lighten-3 blue-grey-text">Seja um parceiro</a>
                         </p>
                     </li>
 
@@ -399,7 +391,7 @@
                     </li>
                     <li>
                         <p>
-                            <a class="buy-drink btn waves-effect waves-light yellow lighten-3 blue-grey-text" href="#">Buy us a drink</a>
+                            <a class="buy-drink btn waves-effect waves-light yellow lighten-3 blue-grey-text">Buy us a drink</a>
                         </p>
                     </li>
 
@@ -426,6 +418,9 @@
     <div class="col s12 m6 l6">
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
+                {{#if place}}
+                <div class="card-image-title">{{ place }}, {{ city }}</div>
+                {{/if}}
                 <img class="activator" src="http://res.cloudinary.com/lets/image/upload/w_250,h_250,c_fill/{{image}}.jpg">
             </div>
             <div class="card-content">

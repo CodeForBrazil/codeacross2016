@@ -21,6 +21,12 @@ if (Meteor.isClient) {
   });
 
   Template.body.events({
+    "click .seja-parceiro": function (event) {
+      alert('Bela iniciativa! Entre em contato conosco para conversar sobre parceiria [<o>] ')
+    },
+    "click .buy-drink": function (event) {
+      alert('Obrigado! Olha nossos próximos eventos no Meetup e vêm compartilhar este drink conosco :D !')
+    },
     "submit .new-event": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
@@ -28,12 +34,16 @@ if (Meteor.isClient) {
       // Get value from form element
       var name = event.target.name.value;
       var datetime = event.target.datetime.value;
-      var address = event.target.address.value;
       var website = event.target.website.value;
       var images = event.target.image.files;
+      var description = event.target.description.value;
+
+      var city = event.target.city.value;
+      var place = event.target.place.value;
+      var address = event.target.address.value;
+
       var contato = event.target.contato.value;
       var email = event.target.email.value;
-      var description = event.target.description.value;
  
       if (name && datetime && contato && email && description && images) {
 
@@ -41,11 +51,16 @@ if (Meteor.isClient) {
         event_id = Events.insert({
           name: name,
           datetime: datetime,
-          address: address,
           website: website,
+          description: description,
+
+          city: city,
+          place: place,
+          address: address,
+
           contato: contato,
           email: email,
-          description: description,
+
           createdAt: new Date() // current time
         });
 
@@ -65,12 +80,16 @@ if (Meteor.isClient) {
         // Clear form
         event.target.name.value = "";
         event.target.datetime.value = "";
-        event.target.address.value = "";
         event.target.website.value = "";
         event.target.imagepath.value = "";
+        event.target.description.value = "";
+
+        event.target.city.value = "";
+        event.target.place.value = "";
+        event.target.address.value = "";
+
         event.target.contato.value = "";
         event.target.email.value = "";
-        event.target.description.value = "";
       } else {
         alert("Por favor preencher todos os campos requiridos");
       }
