@@ -82,14 +82,14 @@
     color: white;
     z-index: 9;
     right: 0;
-    background-color: rgba(33, 150, 243, 0.5);
+    background-color: rgba(33, 150, 243, 0.8);
     padding: 10px 20px;	
 }
 .card-content a {color: #2196F3;}
 
 .card-content a:hover {color: #2196F3;}
 
-#work, #team{background: rgb(247, 247, 247);}
+#work, #team, #partners{background: rgb(247, 247, 247);}
 
 .text_pink{color:#EF9A9A;}
 

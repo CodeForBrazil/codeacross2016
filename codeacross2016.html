@@ -182,6 +182,16 @@
                         <label for="event_address">Endereço</label>
                     </div>
 
+                    <!--div class="file-field input-field col s12 block-end">
+                        <div class="btn waves-effect waves-light yellow lighten-3 black-text">
+                            <i class="mdi-editor-insert-photo medium"></i>
+                            <input type="file" name="partners" id="event_partners" multiple required>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" name="partners_path" placeholder="Parceiros">
+                        </div>
+                    </div--> 
+
                     <div class="input-field col s6">
                         <i class="mdi-action-account-circle prefix"></i>
                         <input id="event_contato" name="contato" type="text" class="validate" required>
@@ -413,7 +423,6 @@
 </body>
 
 
-
 <template name="event">
     <div class="col s12 m6 l6">
         <div class="card">
@@ -433,7 +442,7 @@
  
                 <span class="card-title activator grey-text text-darken-4">{{ name }} <i class="mdi-navigation-more-vert right"></i></span>
                 <p><em>{{ datetime }}</em></p>
-                <p><a href="#">{{ website }}</a></p>
+                <p><a href="{{ website }}" target="_blanck">{{ website }}</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">{{ name }} <i class="mdi-navigation-close right"></i></span>
