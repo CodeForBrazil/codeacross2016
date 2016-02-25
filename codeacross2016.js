@@ -45,6 +45,9 @@ if (Meteor.isClient) {
       var contato = event.target.contato.value;
       var email = event.target.email.value;
  
+      var add_c4a = event.target.add_c4a.checked;
+      var add_iodd = event.target.add_iodd.checked;
+
       if (name && datetime && contato && email && description && images) {
 
         // Insert an event into the collection
@@ -60,6 +63,9 @@ if (Meteor.isClient) {
 
           contato: contato,
           email: email,
+
+          add_c4a: add_c4a,
+          add_iodd: add_iodd,
 
           createdAt: new Date() // current time
         });
@@ -90,6 +96,8 @@ if (Meteor.isClient) {
 
         event.target.contato.value = "";
         event.target.email.value = "";
+
+        alert('Demais! O seu evento foi inserido. Confere a lista dos eventos acima.')
       } else {
         alert("Por favor preencher todos os campos requiridos");
       }
