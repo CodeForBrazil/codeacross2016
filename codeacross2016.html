@@ -456,7 +456,9 @@
                 {{#if place}}
                 <div class="card-image-title">{{ place }}, {{ city }}</div>
                 {{/if}}
+                {{#if image}}
                 <img class="activator" src="http://res.cloudinary.com/lets/image/upload/w_250,h_250,c_fill/{{image}}.jpg">
+                {{/if}}
             </div>
             <div class="card-content">
                 {{#if isAdmin}}
